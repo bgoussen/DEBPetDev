@@ -165,9 +165,6 @@ units.tL_T25_f2   = {'d', 'µm'};  label.tL_T25_f2 = {'time since birth', 'carapa
 temp.tL_T25_f2    = C2K(25);  units.temp.tL_T25_f2 = 'K'; label.temp.tL_T25_f2 = 'temperature';
 comment.tL_T25_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
 
-
-
-
 % uni-variate data at f3 = ? and temp = 15 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
@@ -237,9 +234,9 @@ comment.S = 'Extracted from figure 1 (control curve) of Stewart1998. Day 0 consi
 % Survival starvation
 data.S_flim = [0.692	1.732	2.727	3.678	4.795	5.756	6.886	7.936	8.815	9.798	10.797	11.873	12.856	13.977;    % d, time since ? % BGo D0 TIME TO BE CHECKED
     49.895	47.183	45.476	44.858	44.848	39.076	25.969	15.487	6.226	1.377	1.753	1.546	0.937	0.595]';  % #, mean reproduction at f and T
-units.S_f0   = {'d', '#'};  label.S_f0 = {'time since birth', 'Survival'};  bibkey.S_f0 = 'Stewart1998';
-temp.S_fl0    = C2K(25);  units.temp.S_f0 = 'K'; label.temp.S_f0 = 'temperature';
-comment.S_f0 = 'Extracted from figure 1 (Lake Reality outfall water filtered, no food added) of Stewart1998. Day 0 considered as hatching'; % optional field
+units.S_flim   = {'d', '#'};  label.S_flim = {'time since birth', 'Survival'};  bibkey.S_flim = 'Stewart1998';
+temp.S_flim    = C2K(25);  units.temp.S_flim = 'K'; label.temp.S_flim = 'temperature';
+comment.S_flim = 'Extracted from figure 1 (Lake Reality outfall water filtered, no food added) of Stewart1998. Day 0 considered as hatching'; % optional field
 
 
 
@@ -275,6 +272,23 @@ weights = setweights(data, []);
 % example:
 % data.psd.p_M = 1000;                    % my_pet belongs to a group with high somatic maint
 % weights.psd.kap = 10 * weights.psd.kap;   % I need to give this pseudo data a higher weights
+
+%% Remarks
+  % Plots with the same labels and units can be combined into one plot by
+  % assigning a cell string with dataset names to metaData.grp,sets, and a
+  % caption to metaData.grp.comment
+
+set1 = {'S'; 'S_flim'}; % you may group as many curves as you would like
+comment1 = {'Survival and high food, low food'};
+
+set2 = {'tR';'tR_flim'}; comment2 = {'Repoduction rate at high food, low food'};
+  
+
+% just keep adding sets and comments here :-)
+metaData.grp.sets       = {set1,set2};
+metaData.grp.comment = {comment1,comment2};  
+  
+
 
 %% pack auxData and txtData for output
 auxData.temp = temp;
