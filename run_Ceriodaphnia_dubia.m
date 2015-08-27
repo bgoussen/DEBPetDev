@@ -7,7 +7,7 @@ clear all;
 global pets
 
 % species names
-pets = {'my_pet'};
+pets = {'Ceriodaphnia_dubia'};
 check_my_pet(pets); % check pet-files for required fields
 
 % See estim_options for more options
