@@ -44,7 +44,7 @@ metaData.species    = 'Ceriodaphnia_dubia';
 metaData.species_en = 'Ceriodaphnia_dubia';
 metaData.T_typical  = C2K(25); % K, body temp
 metaData.data_0     = {'ab'; 'ap'; 'am'; 'Lb'; 'Lp'; 'Li'; 'Wdb'; 'Wdp'; 'Wdi'; 'Ri'};  % tags for different types of zero-variate data
-metaData.data_1     = {'t-L'; 'L-W'}; % tags for different types of uni-variate data
+metaData.data_1     = {'t-L'; 't-R';'t-S'}; % tags for different types of uni-variate data % BGo MUST BE EQUAL TO THE DATA NAMES??
 
 metaData.COMPLETE = 2.5; % using criteria of LikaKear2011
 
@@ -220,11 +220,11 @@ comment.tR_flim = 'Extracted from figure 4 (curve non filtered no food added) of
 % uni-variate data at f limited = ? and temp = 25 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Survival ad libitum
-data.S = [1.071	2.189	3.121	4.176	5.170	6.164	7.096	7.965	8.959	10.014	11.002	12.182	13.300	14.042	15.036	15.776	17.014	17.881	18.813	19.984	21.289	22.155	23.087	24.076	25.068	26.124	27.116	27.982	28.971	30.148	30.816	32.183	33.175	34.105	35.096	35.963;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+data.tS = [1.071	2.189	3.121	4.176	5.170	6.164	7.096	7.965	8.959	10.014	11.002	12.182	13.300	14.042	15.036	15.776	17.014	17.881	18.813	19.984	21.289	22.155	23.087	24.076	25.068	26.124	27.116	27.982	28.971	30.148	30.816	32.183	33.175	34.105	35.096	35.963;    % d, time since ? % BGo D0 TIME TO BE CHECKED
     49.779	49.774	49.770	49.642	49.638	49.758	49.630	49.627	49.746	48.999	45.280	45.399	45.270	42.914	42.910	39.935	36.958	35.592	35.588	29.763	29.881	27.896	28.016	25.040	23.797	23.545	22.551	20.442	17.094	15.108	5.817	5.688	4.445	3.451	1.589	0.471]';  % #, mean reproduction at f and T
-units.S   = {'d', '#'};  label.S = {'time since birth', 'Survival'};  bibkey.S = 'Stewart1998';
-temp.S    = C2K(25);  units.temp.S = 'K'; label.temp.S = 'temperature';
-comment.S = 'Extracted from figure 1 (control curve) of Stewart1998. Day 0 considered as hatching'; % optional field
+units.tS   = {'d', '#'};  label.tS = {'time since birth', 'Survival'};  bibkey.tS = 'Stewart1998';
+temp.tS    = C2K(25);  units.temp.tS = 'K'; label.temp.tS = 'temperature';
+comment.tS = 'Extracted from figure 1 (control curve) of Stewart1998. Day 0 considered as hatching'; % optional field
 
 
 
@@ -232,21 +232,11 @@ comment.S = 'Extracted from figure 1 (control curve) of Stewart1998. Day 0 consi
 % uni-variate data at f = 0 and temp = 25 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Survival starvation
-data.S_flim = [0.692	1.732	2.727	3.678	4.795	5.756	6.886	7.936	8.815	9.798	10.797	11.873	12.856	13.977;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+data.tS_flim = [0.692	1.732	2.727	3.678	4.795	5.756	6.886	7.936	8.815	9.798	10.797	11.873	12.856	13.977;    % d, time since ? % BGo D0 TIME TO BE CHECKED
     49.895	47.183	45.476	44.858	44.848	39.076	25.969	15.487	6.226	1.377	1.753	1.546	0.937	0.595]';  % #, mean reproduction at f and T
-units.S_flim   = {'d', '#'};  label.S_flim = {'time since birth', 'Survival'};  bibkey.S_flim = 'Stewart1998';
-temp.S_flim    = C2K(25);  units.temp.S_flim = 'K'; label.temp.S_flim = 'temperature';
-comment.S_flim = 'Extracted from figure 1 (Lake Reality outfall water filtered, no food added) of Stewart1998. Day 0 considered as hatching'; % optional field
-
-
-
-
-
-% data.LW = [0.9 1.8 3.2 4.3 5.0;      % cm, snout-to-vent length at f
-%            0.004 0.03 0.20 0.55 1.1]';   % g, wet weights at f and T
-% units.LW = {'cm', 'g'};     label.LW = {'snout to vent length', 'wet weights'};  bibkey.LW = 'Anon2015';
-% comment.LW = 'Put here any relevant remarks about this data'; % optional field
-
+units.tS_flim   = {'d', '#'};  label.tS_flim = {'time since birth', 'Survival'};  bibkey.tS_flim = 'Stewart1998';
+temp.tS_flim    = C2K(25);  units.temp.tS_flim = 'K'; label.temp.tS_flim = 'temperature';
+comment.tS_flim = 'Extracted from figure 1 (Lake Reality outfall water filtered, no food added) of Stewart1998. Day 0 considered as hatching'; % optional field
 
 
 %% set weights for all real data
@@ -299,7 +289,7 @@ comment6 = {'Length at optimal temperature (25 C) for three low, medium, and hig
 set7 = {'tR';'tR_flim'};
 comment7 = {'Repoduction rate at high food, low food'};
 
-set8 = {'S'; 'S_flim'}; % you may group as many curves as you would like
+set8 = {'tS'; 'tS_flim'}; % you may group as many curves as you would like
 comment8 = {'Survival and high food, low food'};
 
 
