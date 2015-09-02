@@ -126,17 +126,83 @@ prdData.Ri = RT_i;
 
 % uni-variate data
 
-% time-length
-f = f_tL; pars_lb = [g; k; v_Hb];                          % compose parameters
+%% Time-length
+% T15_f1 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T15_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
-ELw = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL * r_B * tL(:,1)); % cm, expected physical length at time
+ELw_T15_f1 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T15_f1 * r_B * tL_T15_f1(:,1)); % cm, expected physical length at time
 %
+% T20_f1 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T20_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T20_f1 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T20_f1 * r_B * tL_T20_f1(:,1)); % cm, expected physical length at time
+%
+% T25_f1 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T25_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T25_f1 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T25_f1 * r_B * tL_T25_f1(:,1)); % cm, expected physical length at time
+%
+% T15_f2 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T15_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T15_f2 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T15_f2 * r_B * tL_T15_f2(:,1)); % cm, expected physical length at time
+%
+% T20_f2 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T20_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T20_f2 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T20_f2 * r_B * tL_T20_f2(:,1)); % cm, expected physical length at time
+%
+% T25_f2 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T25_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T25_f2 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T25_f2 * r_B * tL_T25_f2(:,1)); % cm, expected physical length at time
+%
+% T15_f3 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T15_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T15_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T15_f3 * r_B * tL_T15_f3(:,1)); % cm, expected physical length at time
+%
+% T20_f3 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T20_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T20_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T20_f3 * r_B * tL_T20_f3(:,1)); % cm, expected physical length at time
+%
+% T25_f3 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
+f = f_tL_T25_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
+ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
+Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
+Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
+ELw_T25_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T25_f3 * r_B * tL_T25_f3(:,1)); % cm, expected physical length at time
+
+
 % length-weight
 EWw = (LW(:,1) * del_M).^3 * (1 + f * w);                   % g, expected wet weight at time
 
 % pack to output
 % the names of the fields in the structure must be the same as the data names in the mydata file
-prdData.tL = ELw;
+prdData.tL_T15_f1 = ELw_T15_f1;
+prdData.tL_T20_f1 = ELw_T20_f1;
+prdData.tL_T25_f1 = ELw_T25_f1;
+prdData.tL_T15_f2 = ELw_T15_f2;
+prdData.tL_T20_f2 = ELw_T20_f2;
+prdData.tL_T25_f2 = ELw_T25_f2;
+prdData.tL_T15_f3 = ELw_T15_f3;
+prdData.tL_T20_f3 = ELw_T20_f3;
+prdData.tL_T25_f3 = ELw_T25_f3;
 prdData.LW = EWw;
