@@ -62,6 +62,22 @@ par.del_M = 0.16;   free.del_M = 1;    units.del_M = '-';      label.del_M = 'sh
 par.f = 1.0;        free.f     = 0;    units.f = '-';          label.f    = 'scaled functional response for 0-var data';
 par.f_tL = 0.8;     free.f_tL  = 1;    units.f_tL = '-';       label.f_tL = 'scaled functional response for 1-var data';
 
+% BGo GROUP BY PUBLICATION INSTEAD OF EXPERIMENT? (SPECIFICALLY FOR tR - tR_flim - tS - tS_flim.
+% BGo LABEL TO BE MODIFIED
+par.f_tL_T15_f1 = 1.0;     free.f_tL_T15_f1  = 1;    units.f_tL_T15_f1 = '-';       label.f_tL_T15_f1 = 'scaled functional response for 1-var data';
+par.f_tL_T20_f1 = 1.0;     free.f_tL_T20_f1  = 1;    units.f_tL_T20_f1 = '-';       label.f_tL_T20_f1 = 'scaled functional response for 1-var data';
+par.f_tL_T25_f1 = 1.0;     free.f_tL_T25_f1  = 1;    units.f_tL_T25_f1 = '-';       label.f_tL_T25_f1 = 'scaled functional response for 1-var data';
+par.f_tL_T15_f2 = 0.8;     free.f_tL_T15_f2  = 1;    units.f_tL_T15_f2 = '-';       label.f_tL_T15_f2 = 'scaled functional response for 1-var data';
+par.f_tL_T20_f2 = 0.8;     free.f_tL_T20_f2  = 1;    units.f_tL_T20_f2 = '-';       label.f_tL_T20_f2 = 'scaled functional response for 1-var data';
+par.f_tL_T25_f2 = 0.8;     free.f_tL_T25_f2  = 1;    units.f_tL_T25_f2 = '-';       label.f_tL_T25_f2 = 'scaled functional response for 1-var data';
+par.f_tL_T15_f3 = 0.6;     free.f_tL_T15_f3  = 1;    units.f_tL_T15_f3 = '-';       label.f_tL_T15_f3 = 'scaled functional response for 1-var data';
+par.f_tL_T20_f3 = 0.6;     free.f_tL_T20_f3  = 1;    units.f_tL_T20_f3 = '-';       label.f_tL_T20_f3 = 'scaled functional response for 1-var data';
+par.f_tL_T25_f3 = 0.6;     free.f_tL_T25_f3  = 1;    units.f_tL_T25_f3 = '-';       label.f_tL_T25_f3 = 'scaled functional response for 1-var data';
+par.f_tR = 1.0;            free.f_tR  = 1;           units.f_tR = '-';              label.f_tR = 'scaled functional response for 1-var data';
+par.f_tR_flim = 0.8;       free.f_tR_flim  = 1;      units.f_tR_flim = '-';         label.f_tR_flim = 'scaled functional response for 1-var data';
+par.f_tS = 1.0;            free.f_tS  = 1;           units.f_tS = '-';              label.f_tS = 'scaled functional response for 1-var data';
+par.f_tS_flim = 0.8;       free.f_tS_flim  = 1;      units.f_tS_flim = '-';         label.f_tS_flim = 'scaled functional response for 1-var data';
+
 %% set chemical parameters from Kooy2010 
 %  don't change these values, unless you have a good reason
 [par, units, label, free] = addchem(par, units, label, free, metaData.phylum, metaData.class);

@@ -190,9 +190,21 @@ Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physic
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
 ELw_T25_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T25_f3 * r_B * tL_T25_f3(:,1)); % cm, expected physical length at time
 
+%% Reproduction
+% T 25 (reference temperature), 
+f = f_tR; pars_R = [kap ; kap_R ; g; k_J; k_M; L_T; v; U_Hb; U_Hp ];
+[EN ElN UE0] = cum_reprod(tR(:,1), f, pars_R, Lf); % cumulative number of eggs, UE0 
+%
+% T 25 (reference temperature), f limited
+f = f_tR_flim; pars_R = [kap ; kap_R ; g; k_J; k_M; L_T; v; U_Hb; U_Hp ];
+[EN_flim ElN_flim UE0_flim] = cum_reprod(tR_flim(:,1), f, pars_R, Lf); % cumulative number of eggs, UE0 
 
-% length-weight
-EWw = (LW(:,1) * del_M).^3 * (1 + f * w);                   % g, expected wet weight at time
+% kappa; kappa_R; g; k_J; k_M; L_T; v; U_Hb; U_Hp
+%% Survival
+
+
+%% length-weight
+% EWw = (LW(:,1) * del_M).^3 * (1 + f * w);                   % g, expected wet weight at time
 
 % pack to output
 % the names of the fields in the structure must be the same as the data names in the mydata file
@@ -205,4 +217,8 @@ prdData.tL_T25_f2 = ELw_T25_f2;
 prdData.tL_T15_f3 = ELw_T15_f3;
 prdData.tL_T20_f3 = ELw_T20_f3;
 prdData.tL_T25_f3 = ELw_T25_f3;
-prdData.LW = EWw;
+prdData.tR = EN;
+prdData.tR_flim = EN_flim;
+%prdData.tS = ES;
+%prdData.tS_flim = ES_flim;
+% prdData.LW = EWw;
