@@ -39,6 +39,7 @@ function [prdData, info] = predict_Ceriodaphnia_dubia(par, data, auxData)
 cPar = parscomp_st(par); vars_pull(par);
 vars_pull(cPar);  vars_pull(data);  vars_pull(auxData);
 
+
 % customized filter
 if k * v_Hp >= f_tL^3  % constraint required for reaching puberty with f_tL
     info = 0;
@@ -51,6 +52,14 @@ if ~reach_birth(g, k, v_Hb, f_tL) % constraint required for reaching birth with 
     prdData = {};
     return;
 end
+
+if f_tL_T15_f1 <= 0 | f_tL_T15_f2 <= 0 | f_tL_T15_f3 <= 0 | f_tR <= 0 ...
+        | f_tR_flim <= 0 | f_tS <= 0 | f_tS_flim <= 0  % constraint required f
+    info = 0;
+    prdData = {};
+    return
+end
+
 
 % compute temperature correction factors
 TC_ab = tempcorr(temp.ab, T_ref, T_A);
@@ -135,14 +144,14 @@ Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length
 ELw_T15_f1 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T15_f1 * r_B * tL_T15_f1(:,1)); % cm, expected physical length at time
 %
 % T20_f1 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
-f = f_tL_T20_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
+f = f_tL_T15_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
 ELw_T20_f1 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T20_f1 * r_B * tL_T20_f1(:,1)); % cm, expected physical length at time
 %
 % T25_f1 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
-f = f_tL_T25_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
+f = f_tL_T15_f1; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
@@ -156,14 +165,14 @@ Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length
 ELw_T15_f2 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T15_f2 * r_B * tL_T15_f2(:,1)); % cm, expected physical length at time
 %
 % T20_f2 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
-f = f_tL_T20_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
+f = f_tL_T15_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
 ELw_T20_f2 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T20_f2 * r_B * tL_T20_f2(:,1)); % cm, expected physical length at time
 %
 % T25_f2 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
-f = f_tL_T25_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
+f = f_tL_T15_f2; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
@@ -177,14 +186,14 @@ Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length
 ELw_T15_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T15_f3 * r_B * tL_T15_f3(:,1)); % cm, expected physical length at time
 %
 % T20_f3 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
-f = f_tL_T20_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
+f = f_tL_T15_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
 ELw_T20_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T20_f3 * r_B * tL_T20_f3(:,1)); % cm, expected physical length at time
 %
 % T25_f3 %BGo BEST WAY TO DO OR USE OF auxData FOR THE DIFFERENTS TEMPERATURES ?
-f = f_tL_T25_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
+f = f_tL_T15_f3; pars_lb = [g; k; v_Hb];                          % compose parameters
 ir_B = 3/ k_M + 3 * f * L_m/ v; r_B = 1/ ir_B;             % d, 1/von Bert growth rate
 Lw_i = (f * L_m - L_T)/ del_M;                             % cm, ultimate physical length at f
 Lw_b = get_lb(pars_lb, f) * L_m/ del_M;                    % cm, physical length at birth at f
@@ -193,11 +202,11 @@ ELw_T25_f3 = Lw_i - (Lw_i - Lw_b) * exp( - TC_tL_T25_f3 * r_B * tL_T25_f3(:,1));
 %% Reproduction
 % T 25 (reference temperature), 
 f = f_tR; pars_R = [kap ; kap_R ; g; k_J; k_M; L_T; v; U_Hb; U_Hp ];
-[EN ElN UE0] = cum_reprod(tR(:,1), f, pars_R, Lf); % cumulative number of eggs, UE0 
+[EN ElN UE0] = cum_reprod(tR(:,1), f, pars_R); % cumulative number of eggs, UE0. % BGo parameter Lf not included in cum_reprod. TO INCLUDE?
 %
 % T 25 (reference temperature), f limited
 f = f_tR_flim; pars_R = [kap ; kap_R ; g; k_J; k_M; L_T; v; U_Hb; U_Hp ];
-[EN_flim ElN_flim UE0_flim] = cum_reprod(tR_flim(:,1), f, pars_R, Lf); % cumulative number of eggs, UE0 
+[EN_flim ElN_flim UE0_flim] = cum_reprod(tR_flim(:,1), f, pars_R); % cumulative number of eggs, UE0 % BGo parameter Lf not included in cum_reprod. TO INCLUDE?
 
 % kappa; kappa_R; g; k_J; k_M; L_T; v; U_Hb; U_Hp
 %% Survival
