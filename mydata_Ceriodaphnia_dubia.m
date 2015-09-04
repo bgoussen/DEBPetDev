@@ -74,8 +74,8 @@ metaData.address  = {'Environment Department , University of York, Heslington, Y
 % example
 
 % age 0 is at onset of embryo development
-data.ab = 0;      units.ab = 'd';    label.ab = 'age at birth';  bibkey.ab = 'None';   comment.ab  = ''; % % BGo TO BE COMPLETED
-temp.ab = C2K(20);  units.temp.ab = 'K'; label.temp.ab = 'temperature';
+data.ab = 2;      units.ab = 'd';    label.ab = 'age at birth';  bibkey.ab = 'None';   comment.ab  = 'Guessed at the moment'; % % BGo TO BE COMPLETED
+temp.ab = C2K(25);  units.temp.ab = 'K'; label.temp.ab = 'temperature';
 % observed age at birth is frequently larger than ab, because of diapauzes during incubation
 data.ap = 4.4;     units.ap = 'd';    label.ap = 'age at puberty'; bibkey.ap = 'Henry2004';     comment.ap = 'Determined by using the mean of 5 control replicates.'; % BGo TO BE CHECKED
 temp.ap = C2K(25);  units.temp.ap = 'K'; label.temp.ap = 'temperature';
@@ -85,34 +85,32 @@ data.am = 23.1;     units.am = 'd';    label.am = 'life span';     bibkey.am = '
 temp.am = C2K(25);  units.temp.am = 'K'; label.temp.am = 'temperature'; % BGo COMPLETED
 % (accounting for aging only)
 
-%{
 
-BGo TO BE COMPLETED
 
+% BGo TO BE COMPLETED
 % Please specify what type of length measurement is used for your species.
 % We put here snout-to-vent length, but you should change this depending on your species:
-data.Lb  = 0.45;   units.Lb  = 'cm';   label.Lb  = 'snout to vent length at birth';    bibkey.Lb  = 'Anon2015';
-data.Lp  = 2.36;   units.Lp  = 'cm';   label.Lp  = 'snout to vent length at puberty';  bibkey.Lp  = {'Anon2015','Wiki'}; % for multiple references, please use commas to separate references
-data.Li  = 6.25;   units.Li  = 'cm';   label.Li  = 'ultimate snout to vent length';    bibkey.Li  = 'Wiki';
+data.Lb  = 109.349;   units.Lb  = 'µm';   label.Lb  = 'snout to vent length at birth';    bibkey.Lb  = 'None'; % BGo GUESSED
+data.Lp  = 566.571;   units.Lp  = 'µm';   label.Lp  = 'snout to vent length at puberty';  bibkey.Lp  = 'None';
+data.Li  = 654.256;   units.Li  = 'µm';   label.Li  = 'ultimate snout to vent length';    bibkey.Li  = 'None';
 
-data.Wdb = 5.8e-5; units.Wdb = 'g';    label.Wdb = 'dry weights at birth';             bibkey.Wdb = 'Anon2015';
-data.Wdp = 8e-3;   units.Wdp = 'g';    label.Wdp = 'dry weights at puberty';           bibkey.Wdp = 'Anon2015';
-data.Wdi = 0.15;   units.Wdi = 'g';    label.Wdi = 'ultimate dry weights';             bibkey.Wdi = 'Wiki';
+data.Wdb = 5.8e-6; units.Wdb = 'g';    label.Wdb = 'dry weights at birth';             bibkey.Wdb = 'None'; % BGo GUESSED
+data.Wdp = 8e-4;   units.Wdp = 'g';    label.Wdp = 'dry weights at puberty';           bibkey.Wdp = 'None'; % BGo GUESSED
+data.Wdi = 0.015;   units.Wdi = 'g';    label.Wdi = 'ultimate dry weights';             bibkey.Wdi = 'None'; % BGo GUESSED
 
-data.Ri  = 2.3;    units.Ri  = '#/d';  label.Ri  = 'maximum reprod rate';              bibkey.Ri  = 'Wiki';
+data.Ri  = 2.3;    units.Ri  = '#/d';  label.Ri  = 'maximum reprod rate';              bibkey.Ri  = 'None'; % BGo GUESSED
 % for an individual of ultimate length Li
 temp.Ri = C2K(25);  units.temp.Ri = 'K'; label.temp.Ri = 'temperature'; % BGo COMPLETED
 
 
-%}
 
 % uni-variate data
 
 % uni-variate data at f1 = ? and temp = 15 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T15_f1 = [0 0.98 1.989	2.984 3.99 4.991 5.992 6.997 7.993;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    109.349 350 449.723 513.731 566.571 628.576 519.29 573.319 654.256]';  % µm, carapace length at f and T
+data.tL_T15_f1 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    407.44 528.1 575.31 606.97 633.78 664.77 609.69 637.14 677.86]';  % µm, carapace length at f and T
 units.tL_T15_f1   = {'d', 'µm'};  label.tL_T15_f1 = {'time since birth', 'carapace length'};  bibkey.tL_T15_f1 = 'GamaFlores2011';
 temp.tL_T15_f1    = C2K(15);  units.temp.tL_T15_f1 = 'K'; label.temp.tL_T15_f1 = 'temperature';
 comment.tL_T15_f1 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -120,8 +118,8 @@ comment.tL_T15_f1 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f1 = ? and temp = 20 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T20_f1 = [0	0.986	1.989	2.978	3.99	4.995	5.985	6.995	8.001;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    112.471	319.052	429.73	577.538	557.413	686.37	529.764	637.549	404.958]';  % µm, carapace length at f and T
+data.tL_T20_f1 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    404.51 507.21 562.33 636.97 626.92 691.41 612.42 667.12 550.86]';  % µm, carapace length at f and T
 units.tL_T20_f1   = {'d', 'µm'};  label.tL_T20_f1 = {'time since birth', 'carapace length'};  bibkey.tL_T20_f1 = 'GamaFlores2011';
 temp.tL_T20_f1    = C2K(20);  units.temp.tL_T20_f1 = 'K'; label.temp.tL_T20_f1 = 'temperature';
 comment.tL_T20_f1 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -129,8 +127,8 @@ comment.tL_T20_f1 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f1 = ? and temp = 25 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T25_f1 = [0	0.985	1.993	2.987	3.991	4.991	5.994	6.993	7.996;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    113.469	488.942	582.338	538.273	569.941	548.191	636.062	847.38	634.053]';  % µm, carapace length at f and T
+data.tL_T25_f1 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    403.91 593.81 640.98 618.98 635.17 623.67 668.39 775.52 667.07]';  % µm, carapace length at f and T
 units.tL_T25_f1   = {'d', 'µm'};  label.tL_T25_f1 = {'time since birth', 'carapace length'};  bibkey.tL_T25_f1 = 'GamaFlores2011';
 temp.tL_T25_f1    = C2K(25);  units.temp.tL_T25_f1 = 'K'; label.temp.tL_T25_f1 = 'temperature';
 comment.tL_T25_f1 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -141,8 +139,8 @@ comment.tL_T25_f1 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f2 = ? and temp = 15 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T15_f2 = [0	0.955	1.979	2.973	3.976	4.987	5.987	6.996	8.01;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    103.981	432.727	483.201	496.386	447.433	646.878	525.879	492.223	500.406]';  % µm, carapace length at f and T
+data.tL_T15_f2 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    402.48 564.63 593.76 598.9 571.67 673.25 613.7 596.06 599.43]';  % µm, carapace length at f and T
 units.tL_T15_f2   = {'d', 'µm'};  label.tL_T15_f2 = {'time since birth', 'carapace length'};  bibkey.tL_T15_f2 = 'GamaFlores2011';
 temp.tL_T15_f2    = C2K(15);  units.temp.tL_T15_f2 = 'K'; label.temp.tL_T15_f2 = 'temperature';
 comment.tL_T15_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -150,8 +148,8 @@ comment.tL_T15_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f2 = ? and temp = 20 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T20_f2 = [0	1.012	2.067	2.993	3.995	4.999	6	6.996	8.005;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    105.899	400.166	503.135	529.781	566.47	625.342	410.744	413.638	443.412]';  % µm, carapace length at f and T
+data.tL_T20_f2 = [0 1 2 3 4 5 6 7 8;   % d, time since ? % BGo D0 TIME TO BE CHECKED
+    406.56 551.65 597.06 614.33 632.27 661.47 558.1 556.45 569.82]';  % µm, carapace length at f and T
 units.tL_T20_f2   = {'d', 'µm'};  label.tL_T20_f2 = {'time since birth', 'carapace length'};  bibkey.tL_T20_f2 = 'GamaFlores2011';
 temp.tL_T20_f2    = C2K(20);  units.temp.tL_T20_f2 = 'K'; label.temp.tL_T20_f2 = 'temperature';
 comment.tL_T20_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -159,8 +157,8 @@ comment.tL_T20_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f2 = ? and temp = 25 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T25_f2 = [0	0.979	1.987	2.985	3.985	4.993	5.989	6.992	7.994;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    106.05	531.11	445.971	524.141	456.768	471.367	509.589	648.009	530.604]';  % µm, carapace length at f and T
+data.tL_T25_f2 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    406.56 615.69 572.69 614.1 580.02 585.88 616.43 677.08 617.58]';  % µm, carapace length at f and T
 units.tL_T25_f2   = {'d', 'µm'};  label.tL_T25_f2 = {'time since birth', 'carapace length'};  bibkey.tL_T25_f2 = 'GamaFlores2011';
 temp.tL_T25_f2    = C2K(25);  units.temp.tL_T25_f2 = 'K'; label.temp.tL_T25_f2 = 'temperature';
 comment.tL_T25_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -168,8 +166,8 @@ comment.tL_T25_f2 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f3 = ? and temp = 15 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T15_f3 = [0	0.985	2.078	2.981	3.961	4.983	5.98	6.981	8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    109.779	365.947	457.719	600.361	527.963	621.997	477.678	408.067	361.475]';  % µm, carapace length at f and T
+data.tL_T15_f3 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    398.33 531.67 578.33 648.33 613.33 663.33 590 555 531.67]';  % µm, carapace length at f and T
 units.tL_T15_f3   = {'d', 'µm'};  label.tL_T15_f3 = {'time since birth', 'carapace length'};  bibkey.tL_T15_f3 = 'GamaFlores2011';
 temp.tL_T15_f3    = C2K(15);  units.temp.tL_T15_f3 = 'K'; label.temp.tL_T15_f3 = 'temperature';
 comment.tL_T15_f3 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -177,8 +175,8 @@ comment.tL_T15_f3 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f3 = ? and temp = 20 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T20_f3 = [0	0.981	1.98	2.98	3.961	4.982	5.981	6.981	8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    112.401	362.151	526.42	558.538	622.427	674.752	405.898	383.37	424.281]';  % µm, carapace length at f and T
+data.tL_T20_f3 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    402.48 528.1 609.09 625.62 657.02 683.47 551.24 536.36 559.5]';  % µm, carapace length at f and T
 units.tL_T20_f3   = {'d', 'µm'};  label.tL_T20_f3 = {'time since birth', 'carapace length'};  bibkey.tL_T20_f3 = 'GamaFlores2011';
 temp.tL_T20_f3    = C2K(20);  units.temp.tL_T20_f3 = 'K'; label.temp.tL_T20_f3 = 'temperature';
 comment.tL_T20_f3 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -186,8 +184,8 @@ comment.tL_T20_f3 = 'Extracted from figure 3 of Gama-Flores2011'; % optional fie
 % uni-variate data at f3 = ? and temp = 25 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Carapace length % BGo WHAT DOES THAT MEAN? QUESTION ASKED TO AUTHOR
-data.tL_T25_f3 = [0	0.98	1.98	2.979	3.962	4.979	5.98	6.979	8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
-    114.754	487.705	384.375	464.906	496.49	490.514	539.344	573.928	593.852]';  % µm, carapace length at f and T
+data.tL_T25_f3 = [0 1 2 3 4 5 6 7 8;    % d, time since ? % BGo D0 TIME TO BE CHECKED
+    407.32 594.31 542.28 582.93 600.81 595.93 618.7 636.59 644.72]';  % µm, carapace length at f and T
 units.tL_T25_f3   = {'d', 'µm'};  label.tL_T25_f3 = {'time since birth', 'carapace length'};  bibkey.tL_T25_f3 = 'GamaFlores2011';
 temp.tL_T25_f3    = C2K(25);  units.temp.tL_T25_f3 = 'K'; label.temp.tL_T25_f3 = 'temperature';
 comment.tL_T25_f3 = 'Extracted from figure 3 of Gama-Flores2011'; % optional field
@@ -216,7 +214,7 @@ comment.tR_flim = 'Extracted from figure 4 (curve non filtered no food added) of
 
 
 
-
+%{
 % uni-variate data at f limited = ? and temp = 25 C (this value should be added in
 % pars_init_my_pet as a parameter f_tL) % BGo f TO BE CHANGED
 % Survival ad libitum
@@ -238,6 +236,7 @@ units.tS_flim   = {'d', '#'};  label.tS_flim = {'time since birth', 'Survival'};
 temp.tS_flim    = C2K(25);  units.temp.tS_flim = 'K'; label.temp.tS_flim = 'temperature';
 comment.tS_flim = 'Extracted from figure 1 (Lake Reality outfall water filtered, no food added) of Stewart1998. Day 0 considered as hatching'; % optional field
 
+%}
 
 %% set weights for all real data
 weights = setweights(data, []);
@@ -295,9 +294,9 @@ comment8 = {'Survival and high food, low food'};
 
 
 % just keep adding sets and comments here :-)
-metaData.grp.sets       = {set1,set2,set3,set4,set5,set6,set7,set8};
-metaData.grp.comment = {comment1,comment2,comment3,comment4,comment5,comment6,...
-    comment7,comment8};
+% metaData.grp.sets       = {set1,set2,set3,set4,set5,set6,set7,set8};
+% metaData.grp.comment = {comment1,comment2,comment3,comment4,comment5,comment6,...
+%comment7,comment8};
 
 
 
@@ -353,7 +352,10 @@ metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
 % References for the data, following BibTex rules
 % author names : author = {Last Name, F. and Last Name2, F2. and Last Name 3, F3. and Last Name 4, F4.}
 % latin names in title e.g. \emph{Pleurobrachia pileus}
-
+bibkey = 'None'; type = 'Misc'; bib = [...
+    'note = {Guessed}'];
+metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
+%
 bibkey = 'Wiki'; type = 'Misc'; bib = [...
     'howpublished = {\url{https://en.wikipedia.org/wiki/Ceriodaphnia_dubia}},'...% replace my_pet by latin species name
     'note = {Accessed : 2015-08-25}'];
