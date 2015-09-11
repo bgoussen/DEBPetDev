@@ -102,6 +102,12 @@ data.Ri  = 2.3;    units.Ri  = '#/d';  label.Ri  = 'maximum reprod rate';       
 % for an individual of ultimate length Li
 temp.Ri = C2K(25);  units.temp.Ri = 'K'; label.temp.Ri = 'temperature'; % BGo COMPLETED
 
+%% starrlight's remarks 11/09:
+% you put 2.3 for Ri but then the uni-variate data say there is a max of 16
+% eggs/day ...
+% maybe you could reduce the amount of parameters by just using the f = 1
+% for all of the high food level growth curves instead of having e.g.
+% f_tL_T15_f1, f_tL_T20_f1 etc.  
 
 
 % uni-variate data
@@ -267,36 +273,33 @@ weights = setweights(data, []);
 % assigning a cell string with dataset names to metaData.grp,sets, and a
 % caption to metaData.grp.comment
 
-set1 = {'tL_T15_f1';'tL_T20_f1';'tL_T25_f1'};
-comment1 = {'Length at low food for three temperatures'};
+% set1 = {'tL_T15_f1','tL_T20_f1','tL_T25_f1'};
+% comment1 = {'Length at low food for three temperatures'};
+% 
+% set2 = {'tL_T15_f2','tL_T20_f2','tL_T25_f2'};
+% comment2 = {'Length at medium food for three temperatures'};
+% 
+% set3 = {'tL_T15_f3','tL_T20_f3','tL_T25_f3'};
+% comment3 = {'Length at high food for three temperatures'};
 
-set2 = {'tL_T15_f2';'tL_T20_f2';'tL_T25_f2'};
-comment2 = {'Length at medium food for three temperatures'};
+set4 = {'tL_T15_f1','tL_T15_f2','tL_T15_f3'};
+comment4 = {'Length at high, medium, low food (15 C)'};
 
-set3 = {'tL_T15_f3';'tL_T20_f3';'tL_T25_f3'};
-comment3 = {'Length at high food for three temperatures'};
+set5 = {'tL_T20_f1','tL_T20_f2','tL_T20_f3'};
+comment5 = {'Length at high, medium, low f (20 C)'};
 
-set4 = {'tL_T15_f1';'tL_T15_f2';'tL_T15_f3'};
-comment4 = {'Length at low temperature (15 C) for three low, medium, and high food level'};
+set6 = {'tL_T25_f1','tL_T25_f2','tL_T25_f3'};
+comment6 = {'Length at high, medium and low f (25C)'};
 
-set5 = {'tL_T20_f1';'tL_T20_f2';'tL_T20_f3'};
-comment5 = {'Length at medium temperature (20 C) for three low, medium, and high food level'};
-
-set6 = {'tL_T25_f1';'tL_T25_f2';'tL_T25_f3'};
-comment6 = {'Length at optimal temperature (25 C) for three low, medium, and high food level'};
-
-set7 = {'tR';'tR_flim'};
+set7 = {'tR','tR_flim'};
 comment7 = {'Repoduction rate at high food, low food'};
 
-set8 = {'tS'; 'tS_flim'}; % you may group as many curves as you would like
-comment8 = {'Survival and high food, low food'};
-
-
+% set8 = {'tS', 'tS_flim'}; % you may group as many curves as you would like
+% comment8 = {'Survival and high food, low food'};
 
 % just keep adding sets and comments here :-)
-% metaData.grp.sets       = {set1,set2,set3,set4,set5,set6,set7,set8};
-% metaData.grp.comment = {comment1,comment2,comment3,comment4,comment5,comment6,...
-%comment7,comment8};
+metaData.grp.sets       = {set4,set5,set6,set7};
+metaData.grp.comment = {comment4,comment5,comment6,comment7};
 
 
 
